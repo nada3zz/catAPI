@@ -1,28 +1,53 @@
+
 from django.contrib import admin
-from .models import AboutTeam, Circles, TopMembers,HeadsInfo,Events
-from parler.admin import TranslatableAdmin
+from .models import EventSessions,Events,TeamBoard,TechCircles,NonTechCircles,News,History,HeadsInfo,TopMembers
+from modeltranslation.admin import TranslationAdmin
+
+class NewsAdmin(TranslationAdmin):
+    pass
+
+admin.site.register(News, NewsAdmin)
+
+class EventAdmin(TranslationAdmin):
+    pass
+
+admin.site.register(Events, EventAdmin)
+
+class SessionsAdmin(TranslationAdmin):
+    pass
+
+admin.site.register(EventSessions, SessionsAdmin)
+
+class BoardAdmin(TranslationAdmin):
+    pass
+
+admin.site.register(TeamBoard, BoardAdmin)
+
+class TechCirclesAdmin(TranslationAdmin):
+    pass
+
+admin.site.register(TechCircles, TechCirclesAdmin)
+
+class NonTechAdmin(TranslationAdmin):
+    pass
+
+admin.site.register(NonTechCircles, NonTechAdmin)
+
+class HistoryAdmin(TranslationAdmin):
+    pass
+
+admin.site.register(History, HistoryAdmin)
+
+class HeadsAdmin(TranslationAdmin):
+    pass
+
+admin.site.register(HeadsInfo, HeadsAdmin)
+
+class TopMemAdmin(TranslationAdmin):
+    pass
+
+admin.site.register(TopMembers, TopMemAdmin)
 
 
-class AboutteamAdmin(TranslatableAdmin):
-    list_display = ['title', 'body']
 
-admin.site.register(AboutTeam)
 
-class CirclesAdmin(TranslatableAdmin):
-    list_display = ['Type', 'title','description']
-
-admin.site.register(Circles)
-
-class TopmembersAdmin(TranslatableAdmin):
-    list_display = ['firstname', 'lastname']
-
-admin.site.register(TopMembers)
-class HeadinfoAdmin(TranslatableAdmin):
-    list_display = ['firstname', 'lastname']
-
-admin.site.register(HeadsInfo)
-
-class EventsAdmin(TranslatableAdmin):
-    list_display = ['title', 'description']
-
-admin.site.register(Events)

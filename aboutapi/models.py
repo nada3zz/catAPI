@@ -1,95 +1,108 @@
 from django.db import models
-from parler.models import TranslatableModel, TranslatedFields
+from django.utils import timezone
 
-class TopMembers(TranslatableModel):
+class AboutTeam(models.Model):
+    title= models.CharField(max_length=255)
+    body= models.TextField()
+class EventSessions(models.Model):
+
+    title= models.CharField(max_length=255)
+    description= models.TextField()
+    sessionlink= models.URLField(blank=True)
+    image= models.ImageField(blank=True)
+
+    def __str__(self):
+        return self.title
+
+class Events(models.Model):
+    
+    title= models.CharField(max_length=255)
+    image= models.ImageField(blank=True)
+    date = models.DateField(auto_now=False, auto_now_add=False)
+    #sessions= models.ManyToManyField(EventSessions)
+    
+    def __str__(self):
+        return self.title
+
+
+class TeamBoard(models.Model):
+
+    firstname= models.CharField(max_length=100)
+    lastname= models.CharField(max_length=100)
+    photo= models.ImageField(blank=True)
+    FBlink= models.URLField(blank=True)
+    linkedIn= models.URLField(blank=True)
+
+    def __str__(self):
+        return self.firstname
+
+
+class History(models.Model):
+
+    date = models.DateField(auto_now=False, auto_now_add=False)
+    #date=models.CharField(max_length=4)
+    board= models.ForeignKey(TeamBoard, on_delete=models.CASCADE,related_name='teamboard')
+    achievments= models.TextField()   
+    
+    def __str__(self):
+        return self.date
+
+class News(models.Model):
+
+    title= models.CharField(max_length=255)
+    body= models.TextField()
+    image= models.ImageField(blank=True)
+    publish= models.DateTimeField(default=timezone.now)
+
     class Meta:
-        verbose_name = "topMember"
-        verbose_name_plural ="topMembers"
-        
-    translations = TranslatedFields(
-        firstname= models.CharField(max_length=100),
-        lastname= models.CharField(max_length=100),
-    )
+        ordering= ('-publish',)
+
+    def __str__(self):
+        return self.title
+
+class HeadsInfo(models.Model):
+
+    firstname= models.CharField(max_length=100)
+    lastname= models.CharField(max_length=100)
+    FBlink= models.URLField(blank=True)
+    linkedIn= models.URLField(blank=True)   
    
-    photo= models.ImageField(blank=True),
-    contactinfo=models.TextField(blank=True)
-    #lang_code= models.CharField("lang code", max_length=2, unique=True)
-
-    def __str__(self):
-        return self.firstname
-
-class Events(TranslatableModel):
-    class Meta:
-        verbose_name = "event"
-        verbose_name_plural ="events"
-
-    translations = TranslatedFields(
-        title= models.CharField(max_length=150),
-        description= models.TextField()
-    )
-    
-    image= models.ImageField()
-    
-
-    def __str__(self):
-        return self.title
-
-
-class AboutTeam(TranslatableModel):
-    class Meta:
-        verbose_name ="aboutTeam"
-
-    translations = TranslatedFields(
-        title= models.CharField(max_length=100),
-        body= models.TextField(),
-       
-    )
-    
-    logoUrl= models.ImageField()
-    
-
-    def __str__(self):
-        return self.title
-
-
-class HeadsInfo(TranslatableModel):
-    class Meta:
-        verbose_name = "headInfo"
-        verbose_name_plural ="headsInfo"
-
-    translations= TranslatedFields (
-        firstname= models.CharField(max_length=100),
-        lastname= models.CharField(max_length=100),
-       
-    )
-    phoneNo=models.CharField(max_length=12)
-    
     def __str__(self):
         return self.firstname
 
 
 
-class Circles(TranslatableModel):
-    class Meta:
-        verbose_name = "circle"
-        verbose_name_plural ="circles"
-
-    translations= TranslatedFields(
-        Type= models.CharField(max_length=100),
-        title= models.CharField(max_length=100),
-        description= models.TextField(),
-    )
-
+class TechCircles(models.Model):
+ 
+    title= models.CharField(max_length=100)
+    description= models.TextField()
     RMlink= models.URLField()
-    headinfo= models.ForeignKey(HeadsInfo, on_delete=models.CASCADE,related_name='headsinfo')
+    designTools= models.TextField()
+    headinfo= models.ForeignKey(HeadsInfo, on_delete=models.CASCADE,related_name='techHeads')
     
     def __str__(self):
         return self.title
 
+class NonTechCircles(models.Model):
 
+    title= models.CharField(max_length=100)
+    description= models.TextField()
+    skills= models.TextField()
+    headinfo= models.ForeignKey(HeadsInfo, on_delete=models.CASCADE,related_name='nontechHeads')
 
+    def __str__(self):
+        return self.title
 
+class TopMembers(models.Model):
 
+    firstname= models.CharField(max_length=100)
+    lastname= models.CharField(max_length=100)
+    photo= models.ImageField(blank=True),
+    FBlink= models.URLField(blank=True)
+    linkedIn= models.URLField(blank=True)
+
+    def __str__(self):
+        return self.firstname
 
 
 

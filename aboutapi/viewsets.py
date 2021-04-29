@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from .import models
 from.import serializers
 from rest_framework import permissions
-
+"""
 class AboutTeamViewset(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
     queryset = models.AboutTeam.objects.all()
@@ -27,3 +27,4 @@ class EventViewset(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
     queryset = models.Events.objects.all()
     serializer_class = serializers.EventSerializer 
+"""

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'parler',
+    'modeltranslation',
     'corsheaders',
     'rest_framework',
     'aboutapi.apps.AboutapiConfig',
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'catconfig.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'restfulapiDB',
+        'NAME': 'catapiDB',
         'USER': 'admin',
         'PASSWORD': 'postgres0x1',
         'HOST':'localhost',
@@ -129,13 +129,13 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny",]}
 CORS_ORIGIN_ALLOW_ALL = True
 
-PARLER_LANGUAGES = {
-    None: (
-        {'code': 'en',},
-        {'code': 'ar',},
-    ),
-    'default': {
-        'fallbacks': ['en'],          # defaults to PARLER_DEFAULT_LANGUAGE_CODE
-        'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
-    }
-}
+gettext = lambda s: s
+LANGUAGES = (
+    ('en', gettext('English')),
+    ('ar', gettext('Arabic')),
+)
+MODELTRANSLATION_LANGUAGES = ('en', 'ar')
+MODELTRANSLATION_TRANSLATION_FILES = (
+    'aboutapi.translation',
+)
+#MODELTRANSLATION_CUSTOM_FIELDS = ()
