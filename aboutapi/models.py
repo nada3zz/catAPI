@@ -4,7 +4,7 @@ from django.utils import timezone
 class AboutTeam(models.Model):
     title= models.CharField(max_length=255)
     body= models.TextField()
-class EventSessions(models.Model):
+class EventSession(models.Model):
 
     title= models.CharField(max_length=255)
     description= models.TextField()
@@ -14,7 +14,7 @@ class EventSessions(models.Model):
     def __str__(self):
         return self.title
 
-class Events(models.Model):
+class Event(models.Model):
     
     title= models.CharField(max_length=255)
     image= models.ImageField(blank=True)
@@ -60,7 +60,7 @@ class News(models.Model):
     def __str__(self):
         return self.title
 
-class HeadsInfo(models.Model):
+class HeadInfo(models.Model):
 
     firstname= models.CharField(max_length=100)
     lastname= models.CharField(max_length=100)
@@ -72,28 +72,28 @@ class HeadsInfo(models.Model):
 
 
 
-class TechCircles(models.Model):
+class TechCircle(models.Model):
  
     title= models.CharField(max_length=100)
     description= models.TextField()
     RMlink= models.URLField()
     designTools= models.TextField()
-    headinfo= models.ForeignKey(HeadsInfo, on_delete=models.CASCADE,related_name='techHeads')
+    headinfo= models.ForeignKey(HeadInfo, on_delete=models.CASCADE,related_name='techHeads')
     
     def __str__(self):
         return self.title
 
-class NonTechCircles(models.Model):
+class NonTechCircle(models.Model):
 
     title= models.CharField(max_length=100)
     description= models.TextField()
     skills= models.TextField()
-    headinfo= models.ForeignKey(HeadsInfo, on_delete=models.CASCADE,related_name='nontechHeads')
+    headinfo= models.ForeignKey(HeadInfo, on_delete=models.CASCADE,related_name='nontechHeads')
 
     def __str__(self):
         return self.title
 
-class TopMembers(models.Model):
+class TopMember(models.Model):
 
     firstname= models.CharField(max_length=100)
     lastname= models.CharField(max_length=100)

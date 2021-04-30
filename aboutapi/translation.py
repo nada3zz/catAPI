@@ -1,31 +1,31 @@
 
 from modeltranslation.translator import translator, TranslationOptions
-from .models import EventSessions,Events,TeamBoard,TechCircles,NonTechCircles,News,History,HeadsInfo,TopMembers
+from .models import EventSession,Event,TeamBoard,TechCircle,NonTechCircle,News,History,HeadInfo,TopMember,AboutTeam
 
-class SessionsTranslationOptions(TranslationOptions):
+class SessionTranslationOptions(TranslationOptions):
     fields = ('title', 'description')
 
-translator.register(EventSessions, SessionsTranslationOptions)
+translator.register(EventSession, SessionTranslationOptions)
 
-class EventsTranslationOptions(TranslationOptions):
+class EventTranslationOptions(TranslationOptions):
     fields = ('title', )
 
-translator.register(Events, EventsTranslationOptions)
+translator.register(Event, EventTranslationOptions)
 
 class BoardTranslationOptions(TranslationOptions):
     fields = ('firstname', 'lastname')
 
 translator.register(TeamBoard, BoardTranslationOptions)
 
-class TechCirclesTranslationOptions(TranslationOptions):
+class TechCircleTranslationOptions(TranslationOptions):
     fields = ('title', 'description', 'designTools')
 
-translator.register(TechCircles, TechCirclesTranslationOptions)
+translator.register(TechCircle, TechCircleTranslationOptions)
 
-class NonTechCirclesTranslationOptions(TranslationOptions):
+class NonTechCircleTranslationOptions(TranslationOptions):
     fields = ('title', 'description', 'skills')
 
-translator.register(NonTechCircles, NonTechCirclesTranslationOptions)
+translator.register(NonTechCircle, NonTechCircleTranslationOptions)
 
 class NewsTranslationOptions(TranslationOptions):
     fields = ('title', 'body')
@@ -40,11 +40,15 @@ translator.register(History, HistoryTranslationOptions)
 class HeadInfoTranslationOptions(TranslationOptions):
     fields = ('firstname', 'lastname')
 
-translator.register(HeadsInfo, HeadInfoTranslationOptions)
+translator.register(HeadInfo, HeadInfoTranslationOptions)
 
 class TopMemTranslationOptions(TranslationOptions):
     fields = ('firstname', 'lastname')
 
-translator.register(TopMembers, TopMemTranslationOptions)
+translator.register(TopMember, TopMemTranslationOptions)
 
 
+class AboutTranslationOptions(TranslationOptions):
+    fields = ('title', 'body')
+
+translator.register(AboutTeam, AboutTranslationOptions)

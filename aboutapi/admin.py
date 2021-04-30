@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from .models import EventSessions,Events,TeamBoard,TechCircles,NonTechCircles,News,History,HeadsInfo,TopMembers
+from .models import EventSession,Event,TeamBoard,TechCircle,NonTechCircle,News,History,HeadInfo,TopMember,AboutTeam
 from modeltranslation.admin import TranslationAdmin
 
 class NewsAdmin(TranslationAdmin):
@@ -11,43 +11,46 @@ admin.site.register(News, NewsAdmin)
 class EventAdmin(TranslationAdmin):
     pass
 
-admin.site.register(Events, EventAdmin)
+admin.site.register(Event, EventAdmin)
 
-class SessionsAdmin(TranslationAdmin):
+class SessionAdmin(TranslationAdmin):
     pass
 
-admin.site.register(EventSessions, SessionsAdmin)
+admin.site.register(EventSession, SessionAdmin)
 
 class BoardAdmin(TranslationAdmin):
     pass
 
 admin.site.register(TeamBoard, BoardAdmin)
 
-class TechCirclesAdmin(TranslationAdmin):
+class TechCircleAdmin(TranslationAdmin):
     pass
 
-admin.site.register(TechCircles, TechCirclesAdmin)
+admin.site.register(TechCircle, TechCircleAdmin)
 
 class NonTechAdmin(TranslationAdmin):
     pass
 
-admin.site.register(NonTechCircles, NonTechAdmin)
+admin.site.register(NonTechCircle, NonTechAdmin)
 
 class HistoryAdmin(TranslationAdmin):
     pass
 
 admin.site.register(History, HistoryAdmin)
 
-class HeadsAdmin(TranslationAdmin):
+class HeadAdmin(TranslationAdmin):
     pass
 
-admin.site.register(HeadsInfo, HeadsAdmin)
+admin.site.register(HeadInfo, HeadAdmin)
 
 class TopMemAdmin(TranslationAdmin):
     pass
 
-admin.site.register(TopMembers, TopMemAdmin)
+admin.site.register(TopMember, TopMemAdmin)
 
+class AboutAdmin(TranslationAdmin):
+    pass
 
+admin.site.register(AboutTeam, AboutAdmin)
 
 
