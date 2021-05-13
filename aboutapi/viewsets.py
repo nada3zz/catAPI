@@ -3,7 +3,7 @@ from .import models
 from.import serializers
 from rest_framework import permissions
 
-class AboutViewset(viewsets.ModelViewSet):
+class AboutViewset(viewsets.ModelViewSet): 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
     queryset = models.AboutTeam.objects.all()
     serializer_class = serializers.AboutSerializer 

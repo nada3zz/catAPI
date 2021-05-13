@@ -4,6 +4,7 @@ from django.utils import timezone
 class AboutTeam(models.Model):
     title= models.CharField(max_length=255)
     body= models.TextField()
+
 class EventSession(models.Model):
 
     title= models.CharField(max_length=255)
@@ -38,9 +39,8 @@ class TeamBoard(models.Model):
 
 
 class History(models.Model):
-
-    date = models.DateField(auto_now=False, auto_now_add=False)
-    #date=models.CharField(max_length=4)
+    
+    date = models.DateTimeField(auto_now=True)
     board= models.ForeignKey(TeamBoard, on_delete=models.CASCADE,related_name='teamboard')
     achievments= models.TextField()   
     
@@ -70,7 +70,7 @@ class HeadInfo(models.Model):
     def __str__(self):
         return self.firstname
 
-
+#change forgin key into head sh
 
 class TechCircle(models.Model):
  
