@@ -1,59 +1,26 @@
 from rest_framework import viewsets
 from .import models
-from.import serializers
+from .serializers import AboutSerializer, HistorySerializer, NewsSerializer
+from.models import AboutTeam, History, News
 from rest_framework import permissions
 
-class AboutViewset(viewsets.ModelViewSet): 
+class AboutViewset(viewsets.ReadOnlyModelViewSet): 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.AboutTeam.objects.all()
-    serializer_class = serializers.AboutSerializer 
+    queryset = AboutTeam.objects.all()
+    serializer_class = AboutSerializer 
 
-class NewsViewset(viewsets.ModelViewSet):
+class NewsViewset(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.News.objects.all()
-    serializer_class = serializers.NewsSerializer 
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer 
 
-class HistoryViewset(viewsets.ModelViewSet):
+class HistoryViewset(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.History.objects.all()
-    serializer_class = serializers.HistorySerializer 
-
-class BoardViewset(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.TeamBoard.objects.all()
-    serializer_class = serializers.BoardSerializer
-
-class EventViewset(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.Event.objects.all()
-    serializer_class = serializers.EventSerializer 
- 
-class SessionViewset(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.EventSession.objects.all()
-    serializer_class = serializers.SessionSerializer 
-
-class TechCircleViewset(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.TechCircle.objects.all()
-    serializer_class = serializers.TechCircleSerializer 
+    queryset = History.objects.all()
+    serializer_class = HistorySerializer 
 
 
-class NonTechCircleViewset(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.NonTechCircle.objects.all()
-    serializer_class = serializers.NonTechCircleSerializer 
 
-
-class HeadInfoViewset(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.HeadInfo.objects.all()
-    serializer_class = serializers.HeadInfoSerializer 
-
-class TopMemberViewset(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = models.TopMember.objects.all()
-    serializer_class = serializers.TopMemSerializer 
 
 
 

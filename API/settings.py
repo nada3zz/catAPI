@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
+    'circles.apps.CirclesConfig',
+    'events.apps.EventsConfig',
     'modeltranslation',
     'corsheaders',
     'rest_framework',

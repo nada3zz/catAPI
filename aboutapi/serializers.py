@@ -1,51 +1,20 @@
 from rest_framework import serializers
-from .models import EventSession,Event,HeadInfo,History,TeamBoard,TechCircle,News,NonTechCircle,TopMember, AboutTeam
-
-class EventSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Event
-        fields = '__all__'
-class SessionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = EventSession
-        fields = '__all__'
- 
-class HeadInfoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = HeadInfo
-        fields = '__all__'
+from .models import History, News, AboutTeam
 
 class HistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = History
-        fields = '__all__'
+        fields = ('id', 'date', 'achievments_en','achievments_ar')
 
-class BoardSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TeamBoard
-        fields = '__all__'
-
-class TechCircleSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TechCircle
-        fields = '__all__'
 
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
-        fields = '__all__'
+        fields = ('id', 'title_en','title_ar', 'body_en','body_ar', 'image', 'publish', 'updated')
 
-class NonTechCircleSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = NonTechCircle
-        fields = '__all__'
-
-class TopMemSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TopMember
-        fields = '__all__'
 
 class AboutSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutTeam
-        fields = '__all__'
+        fields = ('id', 'title_en','title_ar', 'body_en', 'body_ar')
+
