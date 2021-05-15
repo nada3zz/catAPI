@@ -8,4 +8,4 @@ from .models import MemberInfo
 class MemberInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = MemberInfo
-        fields =('id', 'firstname_en', 'lastname_en', 'role_en', 'firstname_ar', 'lastname_ar', 'role_ar', 'fblink', 'linkedin')
+        fields =('id', 'firstname_en', 'lastname_en', 'role', 'firstname_ar', 'lastname_ar', 'fblink', 'linkedin')

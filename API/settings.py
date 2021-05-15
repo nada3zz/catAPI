@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'modeltranslation',
     'corsheaders',
     'rest_framework',
-    'aboutapi.apps.AboutapiConfig',
+    'about.apps.AboutConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'API.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'catapiDB',
+        'NAME': 'catDB',
         'USER': 'admin',
         'PASSWORD': 'postgres0x1',
         'HOST':'localhost',
@@ -139,6 +139,9 @@ LANGUAGES = (
 )
 MODELTRANSLATION_LANGUAGES = ('en', 'ar')
 MODELTRANSLATION_TRANSLATION_FILES = (
-    'aboutapi.translation',
+    'about.translation',
+    'events.translation',
+    'circles.translation',
+    'users.translation'
 )
 #MODELTRANSLATION_CUSTOM_FIELDS = ()

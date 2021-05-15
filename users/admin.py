@@ -11,4 +11,4 @@ admin.site.register(MemberInfo, MemberInfoAdmin)
 class UserRoleAdmin(TranslationAdmin):
     pass
 
-admin.site.register(MemberRole)
+admin.site.register(MemberRole, UserRoleAdmin)

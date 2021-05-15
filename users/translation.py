@@ -3,13 +3,13 @@ from .models import MemberInfo, MemberRole
 
 
 class MemeberInfoTranslationOptions(TranslationOptions):
-    fields = ('firstname','lastname', 'role' )
+    fields = ('firstname','lastname' )
 
 translator.register(MemberInfo, MemeberInfoTranslationOptions)
 
 
 
 class MemberRoleTranslationOptions(TranslationOptions):
-    fields = ('role')
+    fields = ('role',)
 
-translator.register(MemberRole, MemberRoleTranslationOptions)
+translator.register(MemberRole, MemberRoleTranslationOptions) 
