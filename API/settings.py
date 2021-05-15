@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'API.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'catDB',
+        'NAME': 'catappDB',
         'USER': 'admin',
         'PASSWORD': 'postgres0x1',
         'HOST':'localhost',
