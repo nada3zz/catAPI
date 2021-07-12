@@ -10,14 +10,14 @@ class AboutTeam(models.Model):
 
 class History(models.Model):
     
-    date = models.DateTimeField(auto_now_add=True,)
+    date = models.DateField()
     achievments= models.TextField()   
     #remember to add events to history section
     class Meta:
         ordering= ('-date',)
 
     def __str__(self):
-        return self.date
+        return str(self.date)
 
 class News(models.Model):
 

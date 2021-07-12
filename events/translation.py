@@ -9,7 +9,7 @@ translator.register(Event, EventTranslationOptions)
 
 
 class SessionTranslationOptions(TranslationOptions):
-    fields = ('title', 'description', 'event_name')
+    fields = ('title', 'description', 'event')
 
 translator.register(EventSession, SessionTranslationOptions)
 

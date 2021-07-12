@@ -5,7 +5,7 @@ from rest_framework import permissions
 
 class EventViewset(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().order_by("-date")
     serializer_class = EventSerializer 
  
 class SessionViewset(viewsets.ReadOnlyModelViewSet):

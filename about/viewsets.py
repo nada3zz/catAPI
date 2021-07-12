@@ -1,7 +1,6 @@
 from rest_framework import viewsets
-from .import models
 from .serializers import AboutSerializer, HistorySerializer, NewsSerializer
-from.models import AboutTeam, History, News
+from .models import AboutTeam, History, News
 from rest_framework import permissions
 
 class AboutViewset(viewsets.ReadOnlyModelViewSet): 
