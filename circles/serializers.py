@@ -4,10 +4,10 @@ from .models import TechCircle, NonTechCircle
 class TechCircleSerializer(serializers.ModelSerializer):
     class Meta:
         model = TechCircle
-        fields = ('id','title_en', 'description_en', 'designtools_en', 'RMlink', 'title_ar', 'description_ar', 'designtools_ar')
+        fields = ('id','title', 'description', 'designtools', 'RMlink', 'title', 'description', 'designtools')
 
 
 class NonTechCircleSerializer(serializers.ModelSerializer):
     class Meta:
         model = NonTechCircle
-        fields = ('id','title_en', 'description_en', 'skills_en', 'title_ar', 'description_ar', 'skills_ar')
+        fields = ('id','title', 'description', 'skills', 'title', 'description', 'skills')

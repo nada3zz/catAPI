@@ -11,6 +11,6 @@ router.register('news', NewsViewset)
 router.register('event', EventViewset)
 router.register('session', SessionViewset)
 router.register('eventphoto', EventPhotoViewset)
-router.register('Techcircle', TechCircleViewset)
-router.register('Nontechcicle', NonTechCircleViewset) 
+router.register('techcircle', TechCircleViewset)
+router.register('nontechcicle', NonTechCircleViewset) 
 
