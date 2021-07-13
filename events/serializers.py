@@ -12,6 +12,7 @@ class EventSerializer(serializers.ModelSerializer):
 
 
 class SessionSerializer(serializers.ModelSerializer):
+    event = EventSerializer()
     class Meta:
         model = EventSession
         fields = ('id', 'title', 'description', 'event', 'sessionlink',)
