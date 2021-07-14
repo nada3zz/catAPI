@@ -1,33 +1,10 @@
-#from rest_framework import routers
-from django.conf.urls import url,include
-
-
-urlpatterns = [
-    url(r'^about/', include('about.urls')), 
-    url(r'^/circles', include('circles.urls')), 
-    url(r'^/events', include('events.urls')),
-
-]
-
-
-
-
-
-"""
 from rest_framework import routers
-from about.viewsets import AboutViewset, HistoryViewset, NewsViewset
-from events.views import EventViewset, SessionViewset, EventPhotoViewset
-from circles.views import TechCircleViewset, NonTechCircleViewset
+from about.urls import router as aboutrouter
+from circles.urls import router as circlesrouter
+from events.urls import router as urlsrouter
 
 router = routers.DefaultRouter()
-router.register('about', AboutViewset)
-router.register('history', HistoryViewset) 
-router.register('news', NewsViewset) 
-router.register('event', EventViewset)
-router.register('session', SessionViewset)
-router.register('eventphoto', EventPhotoViewset)
-router.register('techcircle', TechCircleViewset)
-router.register('nontechcicle', NonTechCircleViewset) 
-"""
 
-
+router.registry.extend(aboutrouter.registry)
+router.registry.extend(circlesrouter.registry)
+router.registry.extend(urlsrouter.registry)
