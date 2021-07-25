@@ -1,8 +1,13 @@
 from rest_framework import serializers
-from .models import History, News, AboutTeam
+from .models import History, News, AboutTeam, Home
 from events.models import Event
 from events.serializers import EventSerializer
 
+class HomeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Home
+        fields = ('id', 'title', 'body', 'image')
+        
 class HistorySerializer(serializers.ModelSerializer):
     events = serializers.SerializerMethodField()
     class Meta:
