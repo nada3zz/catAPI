@@ -3,6 +3,7 @@ from .serializers import AboutSerializer, HistorySerializer, NewsSerializer, Hom
 from .models import AboutTeam, History, News, Home
 from rest_framework import permissions
 from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
 
 
 class NewsAndHomeViewset(viewsets.ReadOnlyModelViewSet):
@@ -23,7 +24,24 @@ class NewsAndHomeViewset(viewsets.ReadOnlyModelViewSet):
             "**News**": news.data,
             "**Home**": home.data
         })
+    
+    
+    def retrieve(self, request, pk=None ,*args, **kwargs):
+        queryset =News.objects.all()
+        instance = get_object_or_404(queryset, pk=pk)
+        #title = self.kwargs.get('id')
+        serializer = NewsSerializer(instance)
+       
+        return Response(serializer.data)
+   
+"""
+    def retrieve(self, request, pk=None, *args, **kwargs):
+        queryset =Home.objects.all()
+        instance = get_object_or_404(queryset, pk=pk)
+        serializer = HomeSerializer(instance)
 
+        return Response(serializer.data)
+"""
 
 
 class AboutViewset(viewsets.ReadOnlyModelViewSet): 
