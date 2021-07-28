@@ -7,12 +7,12 @@ from rest_framework import permissions
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 
-class News(viewsets.ReadOnlyModelViewSet):
+class NewsViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
     queryset = News.objects.all()
     serializer_class = NewsSerializer
 
-class Home(viewsets.ReadOnlyModelViewSet):
+class HomeViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
     queryset = Home.objects.all()
     serializer_class = HomeSerializer
@@ -21,6 +21,12 @@ class NewsAndHomeViewset(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
     serializer_class_news = NewsSerializer
     serializer_class_home = HomeSerializer 
+    
+    def get_queryset_News(self):
+        return News.objects.all()
+    
+    def get_queryset_Home(self):
+        return Home.objects.all()
     
     def list(self, request, *args, **kwargs):
         news = self.serializer_class_news(self.get_queryset_News(), many=True)
