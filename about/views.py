@@ -1,11 +1,9 @@
 from rest_framework import viewsets
-from rest_framework.generics import ListAPIView
-from rest_framework.views import APIView
 from .serializers import AboutSerializer, HistorySerializer, NewsSerializer, HomeSerializer
 from .models import AboutTeam, History, News, Home
 from rest_framework import permissions
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
+
 
 class NewsViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
