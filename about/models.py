@@ -31,7 +31,7 @@ class History(models.Model):
 
 class News(models.Model):
 
-    title= models.CharField(max_length=255)
+    title= models.CharField(max_length=50)
     body= models.TextField()
     image= models.ImageField(blank=True)
     publish= models.DateTimeField(default=timezone.now)

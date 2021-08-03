@@ -20,7 +20,7 @@ class EventSession(models.Model):
     def __str__(self):
         return self.title
 
-class EventPhoto(models.Model):
+class SessionPhoto(models.Model):
 
     image= models.ImageField(blank=True)
     session_name= models.ForeignKey(EventSession, on_delete=models.CASCADE,related_name='eventsessionphotos')
